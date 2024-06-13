@@ -1,28 +1,30 @@
+<img src="./images/IFX_LOGO_600.gif" align="right" width="150"/>
+
 # TRAVEO™ T2G MCU: Emulated EEPROM
 
-This example uses the Arm® Cortex®-M7 (CM7_0) CPU of the TRAVEO™ T2G MCU to execute two tasks: UART communication and emulate EEPROM behavior in flash memory.
+This example executes two tasks: UART communication and emulate EEPROM behavior in flash memory.
 
-At device reset, the default Cortex-M0+ (CM0+) application enables the CM7_0 CPU and configures the CM0+ CPU to go to sleep. In this example, a counter is read from the emulated EEPROM (Em_EEPROM), incremented, written back to Em_EEPROM, and printed over the UART. This occurs at every device reset or power cycle. As a result, the UART prints out an incrementing value at every reset.
+In this example, a counter is read from the emulated EEPROM (Em_EEPROM), incremented, written back to Em_EEPROM, and printed over the UART. This occurs at every device reset or power cycle. As a result, the UART prints out an incrementing value at every reset.
 
 [View this README on GitHub.](https://github.com/Infineon/mtb-t2g-lite-example-emulated-eeprom)
 
 ## Requirements
 
-- [ModusToolbox&trade; software](https://www.infineon.com/modustoolbox) v3.0 or later (tested with v3.0)
+- [ModusToolbox&trade; software](https://www.infineon.com/modustoolbox) v3.0 or later (tested with v3.1)
 - Programming language: C
-- Associated parts: [TRAVEO™ T2G body high MCU](https://www.infineon.com/cms/en/product/microcontroller/32-bit-traveo-t2g-arm-cortex-microcontroller/32-bit-traveo-t2g-arm-cortex-for-body/traveo-t2g-cyt4bf-series/)
+- Associated parts: [TRAVEO™ T2G Body Entry MCU](https://www.infineon.com/cms/en/product/microcontroller/32-bit-traveo-t2g-arm-cortex-microcontroller/32-bit-traveo-t2g-arm-cortex-for-body/traveo-t2g-cyt2bl-series/)
 
 
 ## Supported toolchains (make variable 'TOOLCHAIN')
 
-- GNU Arm&reg; embedded compiler v10.3.1 (`GCC_ARM`) - Default value of `TOOLCHAIN`
+- GNU Arm&reg; embedded compiler v11.3 (`GCC_ARM`) - Default value of `TOOLCHAIN`
 - Arm&reg; compiler v6.16 (`ARM`)
 - IAR C/C++ compiler v9.30.1 (`IAR`)
 
 
 ## Supported kits (make variable 'TARGET')
 
-- TRAVEO™ T2G body high evaluation kit (`KIT_T2G-B-H_LITE`) - Default value of `TARGET`
+- TRAVEO™ T2G body entry evaluation kit (`KIT_T2G-B-E_LITE`) - Default value of `TARGET`
 
 
 ## Hardware setup
@@ -80,10 +82,10 @@ Argument | Description | Required/optional
 
 <br />
 
-The following example will clone the "[Emulated EEPROM](https://github.com/Infineon/mtb-t2g-lite-example-emulated-eeprom)" application with the desired name "EmulatedEEPROM" configured for the *KIT_T2G-B-H_LITE* BSP into the specified working directory, *C:/mtb_projects*:
+The following example will clone the "[mtb-t2g-lite-example-emulated-eeprom](https://github.com/Infineon/mtb-t2g-lite-example-emulated-eeprom)" application with the desired name "EmulatedEEPROM" configured for the *KIT_T2G-B-E_LITE* BSP into the specified working directory, *C:/mtb_projects*:
 
    ```
-   project-creator-cli --board-id KIT_T2G-B-H_LITE --app-id mtb-t2g-lite-example-emulated-eeprom --user-app-name EmulatedEEPROM --target-dir "C:/mtb_projects"
+   project-creator-cli --board-id KIT_T2G-B-E_LITE --app-id mtb-t2g-lite-example-emulated-eeprom --user-app-name EmulatedEEPROM --target-dir "C:/mtb_projects"
    ```
 
 **Note:** The project-creator-cli tool uses the `git clone` and `make getlibs` commands to fetch the repository and import the required libraries. For details, see the "Project creator tools" section of the [ModusToolbox&trade; software user guide](https://www.infineon.com/ModusToolboxUserGuide) (locally available at *{ModusToolbox&trade; software install directory}/docs_{version}/mtb_user_guide.pdf*).
@@ -147,12 +149,12 @@ For a list of supported IDEs and more details, see the "Exporting to IDEs" secti
 
      From the terminal, execute the `make program` command to build and program the application using the default toolchain to the default target. The default toolchain and target are specified in the application's Makefile but you can override those values manually:
       ```
-      make program TARGET=<BSP> TOOLCHAIN=<toolchain>
+      make program TOOLCHAIN=<toolchain>
       ```
 
       Example:
       ```
-      make program TARGET=KIT_T2G-B-H_LITE TOOLCHAIN=GCC_ARM
+      make program TOOLCHAIN=GCC_ARM
       ```
    </details>
 
@@ -186,7 +188,7 @@ The firmware includes the declaration of the EEPROM storage and details of the E
 
 **Note 1:** The starting address and ending address (`userFlashStartAddr` + `MY_EEPROM_PHYSICAL_SIZE`) of the mapped work flash should be contained entirely in the small work flash region or large work flash region if you selected large sector work flash.
 
-**Note 2:** The `CY_WFLASH_SM_SBM_BASE` macro is defined in the *cyt4bf8cds.h.h* file.
+**Note 2:** The `CY_WFLASH_SM_SBM_BASE` macro is defined in the header file.
 
 ### Resources and settings
 
@@ -206,7 +208,7 @@ Resources  | Links
 Application notes | AN235305 - GETTING STARTED WITH TRAVEO™ T2G FAMILY MCUS IN MODUSTOOLBOX™
 Training  | [Traveo™ II Flash](https://www.infineon.com/dgdl/Infineon-Traveo_II_Flash-Training-v04_00-EN.pdf?fileId=8ac78c8c7d718a49017d9f6c7ebf3aed)
 Code examples  | [TRAVEO™ T2G MCU examples](https://github.com/orgs/Infineon/repositories?q=mtb-t2g-&type=all&language=&sort=) on GitHub
-Device documentation | [Device datasheet](https://www.cypress.com/documentation/datasheets/cyt4bf-datasheet-32-bit-arm-cortex-m7-microcontroller-traveo-ii-family) <br> [Architecture Technical reference manuals (TRM)](https://www.cypress.com/documentation/technical-reference-manuals/traveo-ii-automotive-body-controller-high-family) <br> [Registers TRM](https://www.cypress.com/documentation/technical-reference-manuals/traveo-t2g-tvii-b-h-8m-registers-body-controller-high)
+Device documentation | [Device datasheet](https://www.infineon.com/dgdl/?fileId=8ac78c8c82ce566401836c4d5e9a46c8) for CYT2BL<br> [Architecture Technical reference manuals (TRM)](https://www.infineon.com/dgdl/?fileId=5546d462766cbe860176804ea8d27e9b) for TRAVEO™ T2G body entry series
 Libraries on GitHub  | [mtb-pdl-cat1](https://github.com/Infineon/mtb-pdl-cat1) – Peripheral driver library (PDL)  <br> [mtb-hal-cat1](https://github.com/Infineon/mtb-hal-cat1) – Hardware abstraction layer (HAL) library <br> [retarget-io](https://github.com/Infineon/retarget-io) – Utility library to retarget STDIO messages to a UART port
 Middleware on GitHub  | [mcu-middleware](https://github.com/Infineon/modustoolbox-software) – Links to all MCU middleware
 Tools  | [Eclipse IDE for ModusToolbox&trade; software](https://www.infineon.com/modustoolbox) – ModusToolbox&trade; software is a collection of easy-to-use software and tools enabling rapid development with Infineon MCUs, covering applications from embedded sense and control to wireless and cloud-connected systems using AIROC&trade; Wi-Fi and Bluetooth® connectivity devices.
@@ -217,14 +219,17 @@ Tools  | [Eclipse IDE for ModusToolbox&trade; software](https://www.infineon.com
 
 Infineon provides a wealth of data at www.infineon.com to help you select the right device, and quickly and effectively integrate it into your design.
 
-For TRAVEO™ T2G body high MCU devices, see [TRAVEO™ T2G CYT4BF Series](https://www.infineon.com/cms/en/product/microcontroller/32-bit-traveo-t2g-arm-cortex-microcontroller/32-bit-traveo-t2g-arm-cortex-for-body/traveo-t2g-cyt4bf-series/).
+For TRAVEO™ T2G body entry MCU devices, see [TRAVEO™ T2G CYT2BL Series](https://www.infineon.com/cms/en/product/microcontroller/32-bit-traveo-t2g-arm-cortex-microcontroller/32-bit-traveo-t2g-arm-cortex-for-body/traveo-t2g-cyt2bl-series/).
 
 
 ## Document history
 
- Version | Description of change
- ------- | ---------------------
- 1.0.0   | New code example
+ | Version | Description of change |
+ | ------- | --------------------- |
+ | 1.0.0   | New code. |
+ | 1.1.0   | Removed support for KIT_T2G-B-H_LITE <br> Added support for KIT_T2G-B-E_LITE|
+
+------
 <br />
 
 ---------------------------------------------------------
