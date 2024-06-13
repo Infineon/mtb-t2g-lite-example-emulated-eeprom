@@ -228,7 +228,6 @@ For TRAVEO™ T2G body entry MCU devices, see [TRAVEO™ T2G CYT2BL Series](http
  | ------- | --------------------- |
  | 1.0.0   | New code. |
  | 1.1.0   | Removed support for KIT_T2G-B-H_LITE <br> Added support for KIT_T2G-B-E_LITE|
- | 1.2.0   | Update the contents of KIT_T2G-B-E_LITE |
 ------
 <br />
 
