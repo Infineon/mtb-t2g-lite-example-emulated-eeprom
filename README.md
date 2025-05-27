@@ -158,7 +158,7 @@ For a list of supported IDEs and more details, see the "Exporting to IDEs" secti
       ```
    </details>
 
-3. After successful programming, open the serial terminal and set the baud rate as 115200. Press the reset button SW1 to see the emulated EEPROM data saving.
+3. After successful programming, open the serial terminal and set the baud rate as 115200. Press the reset button SW2 to see the emulated EEPROM data saving.
 
 
 ## Debugging
@@ -228,6 +228,7 @@ For TRAVEO™ T2G body entry MCU devices, see [TRAVEO™ T2G CYT2BL Series](http
  | ------- | --------------------- |
  | 1.0.0   | New code. |
  | 1.1.0   | Removed support for KIT_T2G-B-H_LITE <br> Added support for KIT_T2G-B-E_LITE|
+ | 1.2.0   | Fixed Switch number to SW2|
 ------
 <br />
 
