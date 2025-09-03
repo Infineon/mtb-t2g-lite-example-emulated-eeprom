@@ -194,11 +194,11 @@ The firmware includes the declaration of the EEPROM storage and details of the E
 
 **Table 1. Application resources**
 
-| Resource         |  Alias/object          |    Purpose     |
-| :-------         | :------------          | :------------  |
-| EEPROM (PDL)     | EEPROM | Using EEPROM to store the data|
-| GPIO (HAL)       | CYBSP_USER_LED         |  User LED to show the error   |
-| UART (HAL)       | CYBSP_DEBUG_UART_TX/RX |  UART to show the data that is read out from EEPROM   |
+| Resource        |  Alias/object          |    Purpose     |
+| :-------        | :------------          | :------------  |
+| EEPROM (PDL)    | EEPROM | Using EEPROM to store the data|
+| GPIO (HAL)      | CYBSP_USER_LED         |  User LED to show the error   |
+| UART (HAL)      | CYBSP_DEBUG_UART_TX/RX |  UART to show the data that is read out from EEPROM   |
 
 ## Related resources
 
